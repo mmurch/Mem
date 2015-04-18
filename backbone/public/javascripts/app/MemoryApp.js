@@ -1,9 +1,17 @@
-var MemoryApp = function(){
+var Mem = Mem || {};
 
-    this.start = function(){
+(function(mem){
 
-        console.log('app started on client');
+    mem.MemoryApp = function(){
+
+        this.start = function(root){
+
+            new mem.MemoryView({
+                el: root
+            }).render();
+        };
 
     };
 
-};
+})(Mem);
+
