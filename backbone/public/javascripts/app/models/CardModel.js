@@ -3,7 +3,12 @@ var Mem = Mem || {};
 
     mem.CardModel = Brace.Model.extend({
 
-
+        namedAttributes: {
+            sharedId: 'number',
+            imageUrl: 'string',
+            isFound: 'boolean',
+            mode: 'number'
+        }
     });
 
 })(Mem);

@@ -6,6 +6,7 @@ var Mem = Mem || {};
         initialize: function(){
             this.model = mem.CardModel;
         }
+
     });
 
 })(Mem);
