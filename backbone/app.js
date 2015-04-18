@@ -4,8 +4,9 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
-
-var routes = require('./routes/index');
+var fs = require('fs');
+var stripBom = require('strip-bom');
+var _ = require('underscore');
 
 var app = express();
 
@@ -23,7 +24,22 @@ app.use(cookieParser());
 app.use(require('less-middleware')(path.join(__dirname, 'public')));
 app.use(express.static(path.join(__dirname, 'public')));
 
+// prep shared templates for client with hogan
+var hogan = require('hogan');
+
+var views = _.map(fs.readdirSync(path.join(__dirname, 'views', 'shared')), function(template){
+    var templateName = template.substr(0, template.lastIndexOf(".")),
+        fileContents = stripBom(fs.readFileSync(path.join(__dirname, 'views', 'shared', template), "utf8"));
+    return {
+        name: templateName,
+        template: hogan.compile(fileContents, { asString: true })
+    }
+});
+
+var routes = require('./routes/index')(views);
+
 app.use('/', routes);
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -55,6 +71,7 @@ app.use(function(err, req, res, next) {
     error: {}
   });
 });
+
 
 
 var server = app.listen(3000, function () {
