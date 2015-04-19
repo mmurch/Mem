@@ -3,7 +3,7 @@ var Mem = Mem || {};
 
     mem.BoardView = Brace.View.extend({
 
-        assignment: '.board',
+        className: 'board',
 
         mixins: [ Backbone.mixins.ListView ],
 

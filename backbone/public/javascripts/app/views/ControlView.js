@@ -1,9 +1,9 @@
 var Mem = Mem || {};
 (function(mem){
 
-    mem.BoardView = Brace.View.extend({
+    mem.ControlView = Brace.View.extend({
 
-        assignment: '.control',
+        className: 'control',
 
         mixins: [ Backbone.mixins.SimpleView ],
 

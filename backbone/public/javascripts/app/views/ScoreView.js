@@ -3,7 +3,7 @@ var Mem = Mem || {};
 
     mem.ScoreView = Brace.View.extend({
 
-        assignment: '.score',
+        className: 'score',
 
         mixins: [ Backbone.mixins.SimpleView ],
 
