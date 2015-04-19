@@ -8,7 +8,6 @@ var Mem = Mem || {};
         mixins: [ Backbone.mixins.ListView ],
 
         initialize: function(){
-            this.template = JST['board'];
             this.model.getCards().on('reset', this.render, this);
             this.model.on('change:mode', this.render, this);
         },

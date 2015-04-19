@@ -13,10 +13,6 @@ var Mem = Mem || {};
                 model: this.model
             }));
 
-            this.addChild(new mem.ScoreView({
-                model: this.model
-            }));
-
             this.addChild(new mem.ControlView({
                 model: this.model
             }));

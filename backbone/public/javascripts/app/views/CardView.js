@@ -20,8 +20,6 @@ var Mem = Mem || {};
         },
 
         render: function(){
-            this.$el.html(this.template.render(this.model.toJSON()));
-
             this.$el.removeClass(classes);
 
             this.$el.css({
