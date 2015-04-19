@@ -9,6 +9,16 @@ var Mem = Mem || {};
 
         initialize: function(){
             this.template = JST['board'];
+        },
+
+        preRender: function(){
+            this.disposeChildren();
+            this.addChildren(this.model.getCards().map(function(cardModel){
+                return new mem.CardView({
+                    model: cardModel,
+                    game: this.model
+                });
+            }, this));
         }
 
     });

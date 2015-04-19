@@ -5,14 +5,22 @@ var Mem = Mem || {};
 
         mixins: [ Backbone.mixins.ListView ],
 
-        initialize: function(){
-            this.template = JST['mem'];
-        },
-
         preRender: function(){
-            this.addChild(new mem.BoardView());
-            this.addChild(new mem.ScoreView());
-            this.addChild(new mem.ControlView());
+
+            this.disposeChildren();
+
+            this.addChild(new mem.BoardView({
+                model: this.model
+            }));
+
+            this.addChild(new mem.ScoreView({
+                model: this.model
+            }));
+
+            this.addChild(new mem.ControlView({
+                model: this.model
+            }));
+
         }
 
     });
