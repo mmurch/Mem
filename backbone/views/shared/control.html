@@ -5,6 +5,6 @@
 <div class="control-mode-label">Change cards:</div>
 <select class="control-mode">
     {{#modes}}
-    <option value="{{value}}">{{name}}</option>
+    <option value="{{value}}" {{#selected}}selected{{/selected}}>{{name}}</option>
     {{/modes}}
 </select>

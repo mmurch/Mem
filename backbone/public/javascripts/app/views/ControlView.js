@@ -14,6 +14,8 @@ var Mem = Mem || {};
 
         initialize: function(){
             this.template = JST['control'];
+            this.model.getCards().on('change:isFound', this.render, this);
+            this.model.getCards().on('reset', this.render, this);
         },
 
         render: function(){
@@ -30,12 +32,24 @@ var Mem = Mem || {};
                 resetButtonText: 'Reset Game'
             };
 
+            var mode = this.model.getMode();
+
             vm.modes = _.map(_.values(mem.CARD_MODE), function(val){
-                return {
+                var option = {
                     name: mem.CARD_MODE_NAME[val],
                     value: val
+                };
+
+                if (val === mode) {
+                    option.selected = true;
                 }
+
+                return option;
             }, this);
+
+            if (this.model.isWinState()){
+                vm.victory = mem.CARD_MODE_VICTORY[mode];
+            }
 
             return vm;
         },

@@ -28,6 +28,12 @@ var Mem = Mem || {};
             });
         },
 
+        getFoundCards: function(){
+            return this.getCards().filter(function(card){
+                return card.getIsFound();
+            });
+        },
+
         handleTestingChange: function(){
             var testingCards = this.getTestingCards();
             if (testingCards.length < 2){
@@ -57,6 +63,12 @@ var Mem = Mem || {};
                 card.setIsTesting(false);
             }, this);
             this.setIsLocked(false);
+        },
+
+        isWinState: function(){
+            var foundCards = this.getFoundCards();
+
+            return foundCards.length === mem.CARD_COUNT * 2;
         }
     });
 

@@ -14,6 +14,17 @@ body {
 .control {
   float: left;
   width: 200px;
+  position: relative;
+}
+
+.victory-message {
+  position: absolute;
+  color: #b83325;
+  top: -38px;
+  right: 0;
+  font-size: 16px;
+  width: 530px;
+  text-align: right;
 }
 
 .control-reset {
@@ -44,11 +55,13 @@ body {
 .card {
   float: left;
   margin: 0 20px 20px 0;
+  cursor: pointer;
 
   &.found, &.testing {
     background-image: url('/images/sprite.png');
     background-color: transparent;
     background-size: auto;
+    cursor: default;
   }
 
   /* found here http://lea.verou.me/css3patterns/#seigaiha */
