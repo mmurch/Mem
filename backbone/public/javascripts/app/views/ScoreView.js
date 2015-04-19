@@ -5,10 +5,23 @@ var Mem = Mem || {};
 
         className: 'score',
 
-        mixins: [ Backbone.mixins.SimpleView ],
+        mixins: [ Backbone.mixins.DisposesAsView ],
 
         initialize: function(){
             this.template = JST['score'];
+        },
+
+        render: function(){
+
+            var viewModel = this.getViewModel();
+
+            this.$el.html(this.template.render(viewModel));
+
+            return this;
+        },
+
+        getViewModel: function(){
+            return {};
         }
 
     });
