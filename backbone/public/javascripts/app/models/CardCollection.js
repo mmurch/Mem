@@ -16,19 +16,21 @@ var Mem = Mem || {};
             // push two card models for each card type, linked by sharedId
             _.each(_.range(0, mem.CARD_COUNT), function(i){
                 cards.push(new mem.CardModel({
-                    sharedId: i,
-                    isFound: false
-                },
-                {
-                    game: this.options.game
-                }));
+                        sharedId: i,
+                        isFound: false,
+                        isTesting: false
+                    },
+                    {
+                        game: this.options.game
+                    }));
                 cards.push(new mem.CardModel({
-                    sharedId: i,
-                    isFound: false
-                },
-                {
-                    game: this.options.game
-                }));
+                        sharedId: i,
+                        isFound: false,
+                        isTesting: false
+                    },
+                    {
+                        game: this.options.game
+                    }));
             }, this);
 
             this.reset(cards, { silent: true });

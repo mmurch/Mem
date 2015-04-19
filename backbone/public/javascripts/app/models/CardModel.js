@@ -5,7 +5,8 @@ var Mem = Mem || {};
 
         namedAttributes: {
             sharedId: 'number',
-            isFound: 'boolean'
+            isFound: 'boolean',
+            isTesting: 'boolean'
         },
 
         initialize: function(props, options){
@@ -18,6 +19,22 @@ var Mem = Mem || {};
 
         getImageTop: function(){
             return mem.CARD_HEIGHT * this.options.game.getMode() * -1;
+        },
+
+        handleSelection: function(){
+
+            if (this.options.game.getIsLocked()){
+                return;
+            }
+
+            if (this.getIsFound() || this.getIsTesting()){
+                return;
+            }
+
+            if (this.options.game.maySelect()) {
+                this.setIsTesting(true);
+            }
+            
         }
     });
 

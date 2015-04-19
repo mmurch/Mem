@@ -2,9 +2,11 @@ var Mem = Mem || {};
 (function(mem){
 
     mem.GameModel = Brace.Model.extend({
+
         namedAttributes: {
             mode: 'number',
-            cards: false
+            cards: false,
+            isLocked: false
         },
 
         initialize: function(){
@@ -12,6 +14,12 @@ var Mem = Mem || {};
             this.setCards(new mem.CardCollection(null, {
                 game: this
             }));
+        },
+
+        maySelect: function(){
+            return this.getCards().filter(function(card){
+                return card.getIsTesting();
+            }).length < 2;
         }
     });
 
