@@ -36,7 +36,7 @@ var Mem = Mem || {};
             this.reset(cards, { silent: true });
 
             // shuffle collection
-            this.reset(this.shuffle(), { silent: true });
+            this.reset(this.shuffle());
         }
 
     });

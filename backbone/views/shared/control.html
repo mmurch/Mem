@@ -1,6 +1,6 @@
-<div class="control-reset">Reset Game</div>
+<div class="control-reset">{{ resetButtonText }}</div>
 <select class="control-mode">
-    {{ #modes }}
-    <option value="{{ value }}">{{ name }}</option>
-    {{ /modes }}
+    {{#modes}}
+    <option value="{{value}}">{{name}}</option>
+    {{/modes}}
 </select>
