@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>{{ title }}</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <div id="mem"></div>
+    <script src="/javascripts/react-0.13.3/build/react-with-addons.js"></script>
+    <script src="/javascripts/build/mem.js"></script>
+  </body>
+</html>
